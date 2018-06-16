@@ -1,12 +1,27 @@
 import { Recipe } from "./recipe.model";
 import { EventEmitter } from "@angular/core";
+import { Ingredient } from "../shared/ingredient.model";
 
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
-        new Recipe('A Test Recipe', 'This is simply a test', 'https://www.nps.gov/subjects/camping/images/recipe_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false'),
-        new Recipe('Another Test Recipe', 'This is simply a test', 'https://www.nps.gov/subjects/camping/images/recipe_1.jpg?maxwidth=1200&maxheight=1200&autorotate=false')
+        new Recipe(
+            'A Tasty Schnitzel',
+            'A super-tasty Schnitzel - just awesome!',
+            'https://upload.wikimedia.org/wikipedia/commons/a/ae/Wiener-Schnitzel02.jpg',
+            [
+                new Ingredient('Meat', 1),
+                new Ingredient('French Fries', 20)
+            ]),
+        new Recipe(
+            'Big Fat Burger',
+            'What else do you need to say?',
+            'http://www.bbq4all.it/wp-content/uploads/2017/04/bacon-cheese-burger.jpg',
+            [
+                new Ingredient('Buns', 2),
+                new Ingredient('Meat', 1)
+            ])
     ];
 
     getRecipes(){
