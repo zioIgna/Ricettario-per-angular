@@ -7,6 +7,7 @@ import { ShoppingListService } from '../../shopping-list/shopping-list.service';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
+
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
 
@@ -15,4 +16,8 @@ export class RecipeDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  addToShoppingList(){
+    this.slService.addToShoppingList(this.recipe.ingredients);
+    console.log(this.recipe.ingredients);
+  }
 }

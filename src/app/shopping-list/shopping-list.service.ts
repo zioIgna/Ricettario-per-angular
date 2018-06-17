@@ -20,7 +20,7 @@ export class ShoppingListService {
     }
 
     addToShoppingList(ingredients: Ingredient[]){
-        this.ingredients.push.apply(ingredients);
+        this.ingredients.push.apply(this.ingredients,ingredients);
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
 }
